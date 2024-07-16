@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <algorithm>
+#include <string>
 
 // is_palindrome()
 // Summary: This function receives a string and returns true if the string is a palindrome, false otherwise.

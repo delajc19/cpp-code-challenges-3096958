@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <algorithm>
+#include <string>
 
 // is_palindrome()
 // Summary: This function receives a string and returns true if the string is a palindrome, false otherwise.
@@ -15,8 +16,15 @@
 bool is_palindrome(std::string str){
 
     // Write your code here
+    int i = 0;
+    int j = str.size()-1;
+    while(i < j){
+        if(str.at(i) != str.at(j)){return false;}  
+        i++;
+        j--;
+    }
 
-    return false;
+    return true;
 }
 
 // Main function

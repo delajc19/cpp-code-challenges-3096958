@@ -7,6 +7,18 @@
 
 #include <iostream>
 
+using namespace std;
+
+void fizzBuzz(int n){
+    for(int i = 1; i <= n; i++){
+        if(i%3==0 && i%5 == 0){cout<<"FizzBuzz";}
+        else if(i%3==0){cout<<"Fizz";}
+        else if(i%5==0){cout<<"Buzz";}
+        else{cout<<i;}
+        if(i<n){cout<<",";}
+    }
+}
+
 // FizzBuzz, main()
 // Summary: This application runs on the main function.
 int main(){
@@ -16,6 +28,8 @@ int main(){
     std::cin >> n;
 
     // Write your code here
+    fizzBuzz(n);
+
     
     std::cout << std::endl << std::flush;
     return 0;
