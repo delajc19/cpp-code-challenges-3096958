@@ -10,18 +10,46 @@
 #include <vector>
 #include <string>
 
+using namespace std;
+
 // knight_moves()
 // Summary: This function receives a string with the location of a knight in a chessboard and returns a vector of strings with the possible locations it might move to.
 // Arguments:
 //           knight: The knight's location.
 // Returns: An STL vector of strings with the possible locations to move.
-std::vector<std::string> knight_moves(std::string knight){
-    std::vector<std::string> moves;
+void helper(vector<string>&v,char x, char y, int run, int rise){
+    if(x+run <= 'h' && x+run >= 'a' && y+rise <= '8' && y+rise >= '1'){
+        string s = "";
+        s.push_back(x+run); s.push_back(y+rise);
+        v.push_back(s);
+    }
+}
+vector<string> knight_moves(string knight){
+    vector<string> moves;
+    char file = knight.at(0);
+    char rank = knight.at(1);
 
-    // Write your code here
+    // file+2, rank+1d5
+    helper(moves,file,rank,2,1);
+    // file+2, rank-1
+    helper(moves,file,rank,2,-1);
+    // file-2, rank+1
+    helper(moves,file,rank,-2,1);
+    // file-2, rank-1
+    helper(moves,file,rank,-2,-1);
+    // file+1, rank+2
+    helper(moves,file,rank,1,2);
+    // file+1, rank-2
+    helper(moves,file,rank,1,-2);
+    // file-1, rank+2
+    helper(moves,file,rank,-1,2);
+    // file-1, rank-2
+    helper(moves,file,rank,-1,-2);
 
+    
     return moves;
 }
+
 
 // Main function
 int main(){
